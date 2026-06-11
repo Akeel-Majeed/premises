@@ -1,0 +1,174 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bone: #f7f4ee;
+  --color-bone-2: #efeae0;
+  --color-bone-3: #e4ddcf;
+  --color-ink: #16140f;
+  --color-ink-2: #4a463c;
+  --color-ink-3: #8a8475;
+  --color-vault: #174a3c;
+  --color-vault-2: #0f352b;
+  --color-vault-3: #2a6b58;
+  --color-brass: #c98e2d;
+  --color-brass-2: #a87320;
+  --color-terra: #c24e2a;
+  --color-sage: #dde6db;
+
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-body: "Schibsted Grotesk", "Helvetica Neue", sans-serif;
+  --font-mono: "Spline Sans Mono", "Menlo", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-bone text-ink font-body antialiased;
+}
+
+/* Editorial focus ring */
+:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+::selection {
+  background: var(--color-vault);
+  color: var(--color-bone);
+}
+
+/* Paper grain overlay for hero surfaces */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+}
+
+/* Hairline rules — blueprint feel */
+.hairline {
+  border-color: color-mix(in srgb, var(--color-ink) 14%, transparent);
+}
+
+/* Staggered page-load reveal */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.reveal {
+  animation: fadeUp 0.55s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+
+/* Skeleton shimmer */
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+.skel {
+  border-radius: 0.5rem;
+  background: linear-gradient(
+    100deg,
+    var(--color-bone-2) 40%,
+    #f9f7f2 50%,
+    var(--color-bone-2) 60%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s linear infinite;
+}
+
+/* Map pin drop */
+@keyframes pinDrop {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -130%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -100%);
+  }
+}
+.pin-drop {
+  animation: pinDrop 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+}
+
+/* Toast slide */
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.toast-in {
+  animation: toastIn 0.25s ease-out both;
+}
+
+/* Calendar cell fill */
+@keyframes cellFill {
+  from {
+    transform: scale(0.6);
+    opacity: 0.4;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.cell-fill {
+  animation: cellFill 0.15s ease-out both;
+}
+
+/* Hide scrollbars on horizontal rails but keep scroll */
+.rail {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.rail::-webkit-scrollbar {
+  display: none;
+}
+
+/* Compare table frozen first column shadow */
+.frozen-col {
+  position: sticky;
+  left: 0;
+  background: var(--color-bone);
+  box-shadow: 4px 0 8px -6px rgba(22, 20, 15, 0.25);
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal,
+  .pin-drop,
+  .toast-in,
+  .cell-fill {
+    animation: none;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
