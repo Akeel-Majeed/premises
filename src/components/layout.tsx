@@ -197,6 +197,7 @@ export function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex flex-wrap items-center gap-4 text-xs text-bone/50">
           <span>© 2026 Premises (demo)</span>
           <span className="font-mono">EN · GBP £</span>
+          <a href="https://github.com/Akeel-Majeed/premises/discussions" target="_blank" rel="noopener" className="hover:text-bone hover:underline">Community discussions</a>
           <span className="ml-auto">Built as a frontend-only prototype — no real bookings or payments.</span>
         </div>
       </div>
