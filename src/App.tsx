@@ -3,6 +3,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import { AuthModal, CompareTray, Footer, Header, MobileBottomNav } from "./components/layout";
 import { ToastHost } from "./components/ui";
 import Home from "./pages/Home";
+import Landing from "./pages/Landing";
 import Search from "./pages/Search";
 import ListingDetail from "./pages/ListingDetail";
 import { BookingRequest, Checkout, Confirmation } from "./pages/Booking";
@@ -32,6 +33,7 @@ export default function App() {
       <div className="flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<Landing />} />
           <Route path="/search" element={<Search />} />
           <Route path="/space/:id" element={<ListingDetail />} />
           <Route path="/space/:id/book" element={<BookingRequest />} />

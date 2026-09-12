@@ -5,7 +5,7 @@ import { join } from "node:path";
 import { HOSTS, LISTINGS } from "../src/mocks/data";
 
 const STATIC = [
-  "/", "/search", "/favorites", "/compare", "/dashboard", "/dashboard/bookings", "/dashboard/reviews",
+  "/", "/about", "/search", "/favorites", "/compare", "/dashboard", "/dashboard/bookings", "/dashboard/reviews",
   "/inbox", "/host", "/host/listings", "/host/listings/new", "/host/calendar", "/host/requests",
   "/host/earnings", "/host/insights", "/account", "/help", "/terms", "/privacy", "/policies/cancellation",
 ];

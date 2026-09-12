@@ -173,7 +173,7 @@ export function Footer() {
     { title: "Discover", links: [["Offices", "/search?type=office"], ["Retail units", "/search?type=retail"], ["Warehouses", "/search?type=warehouse"], ["Studios", "/search?type=studio"], ["Event venues", "/search?type=event"]] },
     { title: "Hosting", links: [["List your space", "/host/listings/new"], ["Hosting dashboard", "/host"], ["Calendar", "/host/calendar"], ["Insights", "/host/insights"]] },
     { title: "Support", links: [["Help centre", "/help"], ["Cancellation policies", "/policies/cancellation"], ["Trust & safety", "/help"]] },
-    { title: "Company", links: [["Terms", "/terms"], ["Privacy", "/privacy"], ["About", "/help"]] },
+    { title: "Company", links: [["Terms", "/terms"], ["Privacy", "/privacy"], ["About", "/about"]] },
   ];
   return (
     <footer className="bg-ink text-bone mt-20 pb-20 md:pb-0">
